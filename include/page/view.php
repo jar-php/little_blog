@@ -2,19 +2,19 @@
 require_once 'include/config.inc.php';
 require_once 'include/libs.inc.php';
  ?>
- <h3>Просмотр новости <?= $id?></h3>
  <?php 
 //Незабыть отфильтровать данные GET
  $p = viewPost($id);
  ?>
-
-   <p><h2><?= $p['title'] ?></h2></p>
- Полно:<br>
- <?= $p['full']?>
- <br>
- Дата: <?= date('d:m:Y', $p['datetime'])?>
- <br>
- Автор: <?= $p['author'] ?>
+<div class="post">
+				<p id="title"><?= $p['title'] ?></p>
+				<p id="date"><?= date('M d, Y', $p['datetime']) ?></p>
+				<p id="short">
+		 <?= $p['full']?>
+				</p>
+				<a id="more" href="?page=view&id=<?=$p['id']?>">Подробнее</a>
+			</div>
+ 
 <hr>
 <h4>Есть что сказать?</h4>
 <form action="<?= $_SERVER['PHP_SELF']?>" method="POST">

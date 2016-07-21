@@ -1,0 +1,104 @@
+body{
+
+}
+
+.wrapper{
+	width: 800px;
+	margin: auto auto;
+}
+
+.header{
+	margin: 10px 0 15px 0;
+}
+
+.all{
+	border: 1px solid yellow;
+	width: 180px;
+	float:left;
+}
+
+.content{
+	width: 600px;
+	float:right;
+	min-height: 500px;
+}
+
+.clear{
+	clear:both;
+}
+
+.nav{
+	display: inline-block;
+
+}
+
+.nav li a{
+	width: 146px;
+	display: block;
+	padding: 5px 0px 5px 120px;
+	font: 14px Verdana;
+	text-decoration: none;
+}
+
+.nav li a:active{
+	color: black;
+}
+.nav li a:visited{
+	color: black;
+}
+.nav li a:hover{
+	color: gray;
+}
+
+.nav li{
+	float:left;
+	list-style-type: none;
+}
+
+.nav ul{
+	height: 30px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#title{
+	height: 42px;
+	font: 25px Verdana;
+	padding-top: 8px;
+}
+
+.post{
+	border: 1px solid black;
+	margin-bottom: 25px;
+	padding: 0 0 10px 10px;
+}
+
+#date{
+	font: 11px Verdana;
+	color: grey;
+	margin-bottom: 7px;
+}
+
+#short{
+	font: 14px Verdana;
+	color: grey;
+
+}
+
+#more{
+	border: 1px solid black;
+	display: block;
+	margin: auto auto;
+	width: 160px;
+	height: 22px;
+	text-align: center;
+	padding-top: 3px;
+	margin-top: 20px;
+	font:bold 13px Verdana;
+	text-decoration: none;
+	color: black;
+}
+
+a:hover{
+	color: red;
+}

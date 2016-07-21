@@ -2,17 +2,18 @@
 require_once 'include/config.inc.php';
 require_once 'include/libs.inc.php';
  ?>
-<h3>Вывод блога</h3>
 <?php 
 	$post = getAllPosts();
 	//print_r($post);
 	foreach($post as $p){
  ?>
- <p><h2><?= $p['title'] ?></h2></p>
- Кратко:<br>
- <?= $p['short']?>
- <br>
- <a href="?page=view&id=<?=$p['id']?>">Читать</a>
-
+	<div class="post">
+				<p id="title"><?= $p['title'] ?></p>
+				<p id="date"><?= date('M d, Y', $p['datetime']) ?></p>
+				<p id="short">
+			<?= $p['short']?>
+				</p>
+				<a id="more" href="?page=view&id=<?=$p['id']?>">Подробнее</a>
+			</div>
  <?php 
 }
