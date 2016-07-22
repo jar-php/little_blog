@@ -30,7 +30,6 @@
 				<?php 
 			require_once 'include/router.inc.php';
 				 ?>
-		
 			</div>
 			<div class="clear"></div>
 		</div>
