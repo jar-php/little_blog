@@ -10,6 +10,7 @@ require_once 'include/libs.inc.php';
 	<div class="post">
 				<p id="title"><?= $p['title'] ?></p>
 				<p id="date"><?= date('M d, Y', $p['datetime']) ?></p>
+				<p id="date">Количество просмотров: <b><?= $p['visits'] ?></b></p>
 				<p id="short">
 			<?= $p['short']?>
 				</p>

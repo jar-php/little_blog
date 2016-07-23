@@ -141,5 +141,15 @@ function addComment($pid, $text, $author){
 
 }
 
+
+function addVisit($pid){
+	global $con;
+	$sql = "UPDATE posts SET visits = visits + 1 WHERE id = $pid";
+	if(!$res = mysqli_query($con, $sql)) echo mysqli_error($con);
+
+	return $res;
+}
+
  ?>
+
 
