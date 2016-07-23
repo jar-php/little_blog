@@ -3,22 +3,16 @@ require_once 'include/config.inc.php';
 require_once 'include/libs.inc.php';
  ?>
  <?php 
-
- if(!addVisit($id)){
- 	echo "Ошибка к-ва просмотов";
- }
 //Незабыть отфильтровать данные GET
  $p = viewPost($id);
- $v = getVisits($id);
  ?>
 <div class="post">
 				<p id="title"><?= $p['title'] ?></p>
 				<p id="date"><?= date('M d, Y', $p['datetime']) ?></p>
-				<p id="date">Количество просмотров:<b> <?= $v['count'] ?></b></p>
 				<p id="short">
 		 <?= $p['full']?>
 				</p>
-
+				<a id="more" href="?page=view&id=<?=$p['id']?>">Подробнее</a>
 			</div>
  
 <hr>

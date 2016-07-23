@@ -141,37 +141,5 @@ function addComment($pid, $text, $author){
 
 }
 
-
-/*
-@param $pid post ID
-@param return int count 
-*/
-function getVisits($pid){
-	global $con;
-	$sql = "SELECT count FROM visits WHERE pid = $pid";
-	if(!$res = mysqli_query($con, $sql)){
-		echo mysqli_error($con);
-	}
-
-	return $row = mysqli_fetch_assoc($res);
-}	
-
-/*
-
-
-*/
-function addVisit($pid){
-	global $con;
-	$sql = "UPDATE visits SET count = count + 1 WHERE pid = $pid";
-	$res = mysqli_query($con, $sql);
-	if(!$res){
-		echo mysqli_error();
-	}
-
-	return mysqli_num_rows($con);
-}
-
-
  ?>
-
 
