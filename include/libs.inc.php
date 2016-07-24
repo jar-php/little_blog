@@ -138,7 +138,11 @@ function getAllComments($pid){
 	return result2Arr($result);
 }
 function addComment($pid, $text, $author){
-
+	global $con;
+	$sql = "INSERT INTO comments(pid, text, author) VALUES ($pid, '$text', '$author')";
+	$res = mysqli_query($con, $sql);
+	if(!$res) echo mysqli_error($con);
+	return $res;
 }
 
 

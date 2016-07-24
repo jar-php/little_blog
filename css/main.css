@@ -102,3 +102,8 @@ body{
 a:hover{
 	color: red;
 }
+
+#comment{
+	background-color: grey;
+	margin-bottom: 10px;
+}

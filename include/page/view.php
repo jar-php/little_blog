@@ -3,7 +3,8 @@ require_once 'include/config.inc.php';
 require_once 'include/libs.inc.php';
  ?>
  <?php 
-//Незабыть отфильтровать данные GET
+
+
 
 if(!addVisit($id)) echo "Ошибка к-ва просмотров!";
 
@@ -21,7 +22,23 @@ if(!addVisit($id)) echo "Ошибка к-ва просмотров!";
  
 <hr>
 <h4>Есть что сказать?</h4>
-<form action="<?= $_SERVER['PHP_SELF']?>" method="POST">
+<br>
+<?php 
+	if(isset($_POST['text'])) $t = $_POST['text'];
+	if(isset($_POST['author'])) $a = $_POST['author'];
+
+	if(!empty($t) and !empty($a)){
+			if(addComment($id, $t, $a)){
+				    header("Location: ".$_SERVER["REQUEST_URI"]);
+				    exit;
+			}else{
+				echo "Ошибка отправки комментария";
+			}
+	}else{
+		echo "Заполните все поля";
+	}
+ ?>
+<form action="<?= $_SERVER['REQUEST_URI']?>" method="POST">
 <p>
 	<label>Автор</label><br>
 	<input type="text" name="author"></input></p>
@@ -29,7 +46,7 @@ if(!addVisit($id)) echo "Ошибка к-ва просмотров!";
 	<label>Коментарий</label><br>
 	<textarea name="text"></textarea>
 </p>
-<input type="hidden" name="$id"></input>
+<input type="hidden" name="pid" value="$pid"></input>
 <input type="submit" value="Отправить"></input>
 </form>
 
@@ -42,7 +59,7 @@ if(!addVisit($id)) echo "Ошибка к-ва просмотров!";
 	}
 	foreach($comms as $comm){
  ?>
- <p>
+ <p id="comment">
  	<a href="user.php?name=<?= $comm['author']?>"><?= $comm['author'] ?></a><br>
  	<?= $comm['text'] ?>
  </p>
